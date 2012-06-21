@@ -3,12 +3,18 @@ ValueBox = BaseEntity.extend({
     },
     initialize: function(){
     	var model = this;
-      console.log(model);
-    	var entity = Crafty.e("2D, "+gameContainer.conf.get('renderType')+", Collision, Text, valuebox, WiredHitBox");
+    	var entity = Crafty.e("2D, "+gameContainer.conf.get('renderType')+", Collision, Text, valuebox");
 
     	entity
-            .attr({x: model.get('x'), y: model.get('y'), w: 60, h: 62, z: 200})
-            .text(this.getText())
+            .attr({
+              x: model.get('x'),
+              y: model.get('y'),
+              w: 60,
+              h: 62,
+              z: 400,
+              model: model,
+            })
+            .text("<br />&nbsp;&nbsp;&nbsp;&nbsp;" + this.getText())
             .textColor('#ffffff')
             .textFont({'size' : '12px', 'family': 'Arial'})
             .collision(new Crafty.polygon(
