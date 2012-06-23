@@ -4,7 +4,7 @@ Muncher = BaseEntity.extend({
     },
     initialize: function(){
     	var model = this;
-    	var entity = Crafty.e("2D, "+gameContainer.conf.get('renderType')+", FourwayStepped, Keyboard, muncher, SpriteAnimation, Collision");
+    	var entity = Crafty.e("2D, "+gameContainer.conf.get('renderType')+", MultiwayStepped, Keyboard, muncher, SpriteAnimation, Collision");
 
       Crafty.audio.add("bloop", "./web/sounds/bloop.wav");
       Crafty.audio.add("walk", "./web/sounds/walk.wav");
@@ -18,7 +18,16 @@ Muncher = BaseEntity.extend({
                 [62, 60],
                 [62, 0]
             ))
-            .fourwaystepped(model.get('steps'), {UP_ARROW: -90, DOWN_ARROW: 90, RIGHT_ARROW: 0, LEFT_ARROW: 180})
+            .multiwaystepped(model.get('steps'), {
+              UP_ARROW: -90,
+              DOWN_ARROW: 90,
+              RIGHT_ARROW: 0,
+              LEFT_ARROW: 180,
+              K: -90,
+              J: 90,
+              L: 0,
+              H: 180
+            })
             .bind('EnterFrame', function(e){
             })
             .bind('Moved', function(e) {
@@ -27,13 +36,17 @@ Muncher = BaseEntity.extend({
             .bind('KeyUp', function(e){
               // If the space key was pressed, then we chomped.
               if(e.key == Crafty.keys.SPACE){
-                console.log('chomp!');
                 var values = entity.hit('valuebox');
                 _.each(values, function (value) {
-                  if(model.get('checker')(value.obj.model.getValue())){
+                  console.log(value);
+                  if(sc.checker(value.obj.model.getValue())){
                     Crafty.audio.play('bloop');
+                    infc.score.increment(1);
+                    sc.valueboxes.good = _.without(sc.valueboxes.good, value.obj.model);
                   }else{
                     Crafty.audio.play('wrong');
+                    infc.lives.decrement();
+                    sc.valueboxes.bad = _.without(sc.valueboxes.bad, value.obj.model);
                   };
                   value.obj.destroy();
                 });

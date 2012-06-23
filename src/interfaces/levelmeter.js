@@ -1,7 +1,4 @@
-Level = BaseEntity.extend({
-	defaults: {
-        'text' : "Level: 1",
-    },
+LevelMeter = BaseEntity.extend({
     initialize: function(){
     	var model = this;
     	var entity = Crafty.e("2D, DOM, Text");
