@@ -12,7 +12,19 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <script src="src/libs/modernizr-2.5.3.min.js"></script>
-  <style type="text/css">body {-webkit-tap-highlight-color: rgba(0,0,0,0);  margin: 0;}</style>
+  <style type="text/css">
+    body {
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+      margin: 0;
+    }
+    .valuebox {
+      text-align: center;
+      padding-top: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      text-shadow: black 0 0 .1em;
+    }
+  </style>
 </head>
 <body>
   <!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -40,9 +52,9 @@
   sc    = [], // container for backbone scene elements
   infc  = []  // container for backbone interface elements
 
-  Crafty.modules({ 'crafty-debug-bar': 'DEV' }, function () {
-    Crafty.debugBar.show();
-  });
+  //Crafty.modules({ 'crafty-debug-bar': 'DEV' }, function () {
+    //Crafty.debugBar.show();
+  //});
   </script>
   <!-- end scripts -->
 

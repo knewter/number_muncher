@@ -14,9 +14,8 @@ ValueBox = BaseEntity.extend({
               z: 400,
               model: model,
             })
-            .text("<br />&nbsp;&nbsp;&nbsp;&nbsp;" + this.getText())
+            .text("<div class='valuebox'>" + this.getText() + "</div>")
             .textColor('#ffffff')
-            .textFont({'size' : '12px', 'family': 'Arial'})
             .collision(new Crafty.polygon(
                 [0,  0],
                 [0,  60],

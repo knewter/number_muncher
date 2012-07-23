@@ -8,8 +8,7 @@ Crafty.scene("level1", function() {
         {
           levelNumber: '1',
           instructions: 'Eat the even numbers',
-          //nextScene: 'level2',
-          nextScene: 'level4',
+          nextScene: 'level2',
           boxTypes: [AdditionBox],
           checker: function (val) {
             return (val % 2) === 0;
