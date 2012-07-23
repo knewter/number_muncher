@@ -62,6 +62,8 @@ window.onload = function() {
         // declare all scenes
         var scenes = [
           "src/scenes/level1.js?v="+version+"",
+          "src/scenes/level2.js?v="+version+"",
+          "src/scenes/level3.js?v="+version+"",
           ];
 
         require(scenes, function(){});

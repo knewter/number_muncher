@@ -1,4 +1,4 @@
-Crafty.scene("level1", function() {
+Crafty.scene("level2", function() {
 	require(
     [
       'src/scenes/level_base.js'
@@ -6,11 +6,11 @@ Crafty.scene("level1", function() {
     function(LevelBase) {
       return LevelBase.levelFactory(
         {
-          levelNumber: '1',
-          instructions: 'Eat the even numbers',
-          nextScene: 'level2',
+          levelNumber: '2',
+          instructions: 'Eat the odd numbers',
+          nextScene: 'level3',
           checker: function (val) {
-            return (val % 2) === 0;
+            return (val % 2) === 1;
           }
         }
       );
