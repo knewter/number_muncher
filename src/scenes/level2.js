@@ -9,6 +9,7 @@ Crafty.scene("level2", function() {
           levelNumber: '2',
           instructions: 'Eat the odd numbers',
           nextScene: 'level3',
+          boxTypes: [AdditionBox, SubtractionBox],
           checker: function (val) {
             return (val % 2) === 1;
           }

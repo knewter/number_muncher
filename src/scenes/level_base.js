@@ -3,6 +3,7 @@ define(
         "src/entities/muncher.js",
         "src/entities/valuebox.js",
         "src/entities/additionbox.js",
+        "src/entities/subtractionbox.js",
         "src/interfaces/levelmeter.js",
         "src/interfaces/instruction_meter.js",
         "src/interfaces/score.js",
@@ -51,7 +52,9 @@ define(
             // Generate two random numbers between 0 and 10
             var a = Math.floor(Math.random()*11);
             var b = Math.floor(Math.random()*11);
-            var valuebox = new AdditionBox({ x: gridX, y: gridY, a: a, b: b });
+            // Get a random valid boxtype
+            var boxType = _.shuffle(options.boxTypes)[0];
+            var valuebox = new boxType({ x: gridX, y: gridY, a: a, b: b });
             if(sc.checker(valuebox.getValue())){
               sc.valueboxes.good.push(valuebox);
             } else {
