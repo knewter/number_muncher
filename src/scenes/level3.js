@@ -8,7 +8,7 @@ Crafty.scene("level3", function() {
         {
           levelNumber: '3',
           instructions: 'Eat the numbers greater than 5',
-          nextScene: 'level1',
+          nextScene: 'level4',
           boxTypes: [AdditionBox, SubtractionBox],
           checker: function (val) {
             return val > 5;

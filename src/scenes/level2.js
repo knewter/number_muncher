@@ -11,7 +11,7 @@ Crafty.scene("level2", function() {
           nextScene: 'level3',
           boxTypes: [AdditionBox, SubtractionBox],
           checker: function (val) {
-            return (val % 2) === 1;
+            return (val % 2) != 0;
           }
         }
       );

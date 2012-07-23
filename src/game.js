@@ -64,6 +64,7 @@ window.onload = function() {
           "src/scenes/level1.js?v="+version+"",
           "src/scenes/level2.js?v="+version+"",
           "src/scenes/level3.js?v="+version+"",
+          "src/scenes/level4.js?v="+version+"",
           ];
 
         require(scenes, function(){});

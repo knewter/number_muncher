@@ -4,6 +4,7 @@ define(
         "src/entities/valuebox.js",
         "src/entities/additionbox.js",
         "src/entities/subtractionbox.js",
+        "src/entities/multiplicationbox.js",
         "src/interfaces/levelmeter.js",
         "src/interfaces/instruction_meter.js",
         "src/interfaces/score.js",
