@@ -33,6 +33,7 @@ define(
           y: 50
         });
         sc.nextScene = options.nextScene;
+        sc.thisScene = options.thisScene;
         infc.level = new LevelMeter({ text: 'Level: ' + options.levelNumber });
         infc.instructions = new InstructionMeter({ text: options.instructions });
         infc.score = new Score();
@@ -78,6 +79,7 @@ define(
           if(infc.lives.get('value') === 0){
             sc.complete = true;
             alert('you lost...');
+            Crafty.scene(sc.thisScene);
           }
         });
       }

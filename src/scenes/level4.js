@@ -9,6 +9,7 @@ Crafty.scene("level4", function() {
           levelNumber: '4',
           instructions: 'Eat the even numbers',
           nextScene: 'level1',
+          thisScene: 'level4',
           boxTypes: [MultiplicationBox],
           checker: function (val) {
             return (val % 2) === 0;
