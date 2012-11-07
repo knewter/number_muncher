@@ -22,6 +22,16 @@ define(
         var gridOriginX = 20;
         var gridOriginY = 50;
 
+        var cellWidth = 60;
+        var cellHeight = 62;
+
+        var numCols = 5;
+        var numRows = 6;
+
+        // Set max x and y for movement
+        var maxX = gridOriginX + ((numCols - 1) * cellWidth);
+        var maxY = gridOriginY + ((numRows - 1) * cellHeight);
+
         sc.complete = false;
 
         sc.checker = options.checker;
@@ -29,8 +39,12 @@ define(
 
         sc.valueboxes = { good: [], bad: [] };
         sc.muncher = new Muncher({
-          x: 20,
-          y: 50
+          x: gridOriginX,
+          y: gridOriginY,
+          maxX: maxX,
+          maxY: maxY,
+          minX: gridOriginX,
+          minY: gridOriginY
         });
         sc.nextScene = options.nextScene;
         sc.thisScene = options.thisScene;
@@ -41,16 +55,12 @@ define(
 
         // Add each of the value boxes in a grid
         // grid is 60x62 like everything else
-        var cellWidth = 60;
-        var cellHeight = 62;
         var gridX = gridOriginX;
-        var gridY = 50;
+        var gridY = gridOriginY;
         // Add a grid of AdditionBoxes
-        var numCols = 6;
-        var numRows = 5;
-        _.times(numCols, function () {
+        _.times(numRows, function () {
           gridX = gridOriginX;
-          _.times(numRows, function () {
+          _.times(numCols, function () {
             // Generate two random numbers between 0 and 10
             var a = Math.floor(Math.random()*11);
             var b = Math.floor(Math.random()*11);

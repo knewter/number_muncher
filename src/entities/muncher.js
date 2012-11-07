@@ -27,6 +27,11 @@ Muncher = BaseEntity.extend({
               J: 90,
               L: 0,
               H: 180
+            }, {
+              maxX: this.get('maxX'),
+              maxY: this.get('maxY'),
+              minX: this.get('minX'),
+              minY: this.get('minY')
             })
             .bind('EnterFrame', function(e){
             })

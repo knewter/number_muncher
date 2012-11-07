@@ -30,7 +30,7 @@ Crafty.c("MultiwayStepped", {
 	* this.multiwaystepped({x:3,y:2}, {UP_ARROW: -90, DOWN_ARROW: 90, RIGHT_ARROW: 0, LEFT_ARROW: 180});
 	* ~~~
 	*/
-	multiwaystepped: function (speed, keys) {
+	multiwaystepped: function (speed, keys, options) {
 		if (keys) {
 			if (speed.x && speed.y) {
 				this._speed.x = speed.x;
@@ -42,6 +42,12 @@ Crafty.c("MultiwayStepped", {
 		}
 
 		this._keyDirection = keys;
+        if(options){
+            this.maxX = options.maxX;
+            this.maxY = options.maxY;
+            this.minX = options.minX;
+            this.minY = options.minY;
+        }
 		this.speed(this._speed);
 
 		this.bind("KeyDown", function (e) {
@@ -55,12 +61,18 @@ Crafty.c("MultiwayStepped", {
 			if (this.disableControls) return;
 
 			if (this._movement.x !== 0) {
-				this.x += this._movement.x;
-				this.trigger('Moved', { x: this.x - this._movement.x, y: this.y });
+                var newX = this.x + this._movement.x;
+                if(newX <= this.maxX && newX >= this.minX){
+                    this.x = newX;
+                    this.trigger('Moved', { x: newX, y: this.y });
+                }
 			}
 			if (this._movement.y !== 0) {
-				this.y += this._movement.y;
-				this.trigger('Moved', { x: this.x, y: this.y - this._movement.y });
+                var newY = this.y + this._movement.y;
+                if(newY <= this.maxY && newY >= this.minY){
+                    this.y = newY;
+                    this.trigger('Moved', { x: this.x, y: newY });
+                }
 			}
       this._movement.x = 0;
       this._movement.y = 0;
