@@ -50,6 +50,7 @@ window.onload = function() {
         require(elements, function() {	   
           loadingText.destroy();
           if (gameContainer.scene != undefined) {
+            gameContainer.scene = 'end';
             Crafty.scene(gameContainer.scene);
           }
         });
@@ -65,6 +66,7 @@ window.onload = function() {
           "src/scenes/level2.js?v="+version+"",
           "src/scenes/level3.js?v="+version+"",
           "src/scenes/level4.js?v="+version+"",
+          "src/scenes/end.js?v="+version+""
           ];
 
         require(scenes, function(){});
